@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t dannypark/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run dannypark/docker-react npm run test -- --coverage
